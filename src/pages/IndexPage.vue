@@ -1,42 +1,35 @@
 <template>
-<div class="q-pa-md" style="max-width: 400px">
-  <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
-    <q-input
-      filled
-      v-model="name"
-      label="Your name (ชื่อ)*"
-      hint="Name and surname"
-      lazy-rules
-      :rules="[val => (val && val.length > 0) || 'Please type something']"
-    />
+<div class="q-pa-md">
+  <div class="q-gutter-md" style="max-width: 300px">
+    <q-input v-model="text" label="Standard" />
+
+    <q-input filled v-model="text" label="Filled" />
+
+    <q-input outlined v-model="text" label="Outlined" />
+
+    <q-input standout v-model="text" label="Standout" />
 
     <q-input
-      filled
-      type="number"
-      v-model.number="age"
-      label="Your age (อายุ)*"
-      lazy-rules
-      :rules="[
-        val => (val !== null && val !== '') || 'Please type your age',
-        val => (val > 0 && val < 100) || 'Please type a real age'
-      ]"
+      standout="bg-teal text-white"
+      v-model="text"
+      label="Custom standout"
     />
 
-    <q-toggle v-model="accept" label="I accept the license and terms(ยอมรับเงื่อนไข)" />
+    <q-input borderless v-model="text" label="Borderless" />
 
-    <div>
-      <q-btn label="Submit" type="submit" color="primary" />
-      <q-btn
-        label="Reset"
-        type="reset"
-        color="primary"
-        flat
-        class="q-ml-sm"
-      />
-    </div>
-  </q-form>
-</div>
-</template>
+    <q-input rounded filled v-model="text" label="Rounded filled" />
+
+    <q-input rounded outlined v-model="text" label="Rounded outlined" />
+
+    <q-input rounded standout v-model="text" label="Rounded standout" />
+
+    <q-input square filled v-model="text" label="Square filled" />
+
+    <q-input square outlined v-model="text" label="Square outlined" />
+
+    <q-input square standout v-model="text" label="Square standout" />
+  </div>
+</div></template>
 
 <script setup>
 import { useQuasar } from 'quasar'
